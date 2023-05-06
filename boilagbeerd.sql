@@ -1,0 +1,15 @@
+CREATE TABLE User_Information (Name varchar(255) NOT NULL, User_id int(10) NOT NULL AUTO_INCREMENT, email varchar(255) NOT NULL UNIQUE, password varchar(255) NOT NULL, user_type varchar(255) NOT NULL, Adress varchar(255) NOT NULL, user_image varchar(255), phone_no int(10), balance float, reward int(10), exchange_id int(10), PRIMARY KEY (User_id));
+CREATE TABLE Book_Info (book_id int(10) NOT NULL AUTO_INCREMENT, user_id int(10) NOT NULL, Book_name varchar(255), Book_description varchar(255), Book_type int(10), Type varchar(255), price float, Book_image int(10), delivery_id int(10), PRIMARY KEY (book_id));
+CREATE TABLE Book_exchange (exchange_id int(10) NOT NULL AUTO_INCREMENT, user1 int(10) NOT NULL, user2 int(10), book1 int(10) NOT NULL, book2 int(10), exchange_date date, PRIMARY KEY (exchange_id));
+CREATE TABLE Book_rent (rent_id int(10) NOT NULL AUTO_INCREMENT, user_id int(10) NOT NULL, book_id int(10) NOT NULL, rent float, rent_date date, user2 int(10), Return_date date, PRIMARY KEY (rent_id));
+CREATE TABLE Forum (forum_id int(10) NOT NULL AUTO_INCREMENT, user_id int(10) NOT NULL, book_name varchar(255), description varchar(255), PRIMARY KEY (forum_id));
+CREATE TABLE Delivery (delivery_id int(10) NOT NULL AUTO_INCREMENT, user1 int(10), user2 int(10), delivery_date date, address varchar(255), PRIMARY KEY (delivery_id));
+CREATE TABLE Book_donation (decription int(10), doner_id varchar(255), receiver_id int(10), available int(10), book_id int(10) NOT NULL, donation_id int(10) NOT NULL AUTO_INCREMENT, PRIMARY KEY (donation_id));
+ALTER TABLE Book_Info ADD INDEX FKBook_Info568108 (user_id), ADD CONSTRAINT FKBook_Info568108 FOREIGN KEY (user_id) REFERENCES User_Information (User_id);
+ALTER TABLE Forum ADD INDEX FKForum40672 (user_id), ADD CONSTRAINT FKForum40672 FOREIGN KEY (user_id) REFERENCES User_Information (User_id);
+ALTER TABLE Book_rent ADD INDEX FKBook_rent355072 (user_id), ADD CONSTRAINT FKBook_rent355072 FOREIGN KEY (user_id) REFERENCES User_Information (User_id);
+ALTER TABLE Book_rent ADD INDEX FKBook_rent355647 (book_id), ADD CONSTRAINT FKBook_rent355647 FOREIGN KEY (book_id) REFERENCES Book_Info (book_id);
+ALTER TABLE Book_Info ADD INDEX FKBook_Info995222 (delivery_id), ADD CONSTRAINT FKBook_Info995222 FOREIGN KEY (delivery_id) REFERENCES Delivery (delivery_id);
+ALTER TABLE Book_exchange ADD INDEX FKBook_excha232865 (book1), ADD CONSTRAINT FKBook_excha232865 FOREIGN KEY (book1) REFERENCES Book_Info (book_id);
+ALTER TABLE Book_exchange ADD INDEX FKBook_excha766076 (user1), ADD CONSTRAINT FKBook_excha766076 FOREIGN KEY (user1) REFERENCES User_Information (User_id);
+ALTER TABLE Book_donation ADD INDEX FKBook_donat870597 (book_id), ADD CONSTRAINT FKBook_donat870597 FOREIGN KEY (book_id) REFERENCES Book_Info (book_id);

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign up</title>
+    <link rel="stylesheet" href='style.css'>
+    <script src="http://kit.fontawesome.com/c4254e24a8.js" crossorigin="anonymous"></script>
+
+</head>
+<body>
+
+    <div class="hero">
+
+        <form  action="./sign_up_information.php" method="POST"> 
+            <h2> Sign-up </h2>
+
+             <div class="input-group">
+                    <input type="text" id="name" name="name" required>
+            <label for="name"><i class="fas fa-user"></i> Your Name</label>
+            </div>
+
+            <div class="input-group">
+                <input type="email" id="email" name="mail" required>
+            <label for="email"><i class="fas fa-envelope"></i> Email Id</label>
+            </div>
+
+            <div class="input-group">
+                <input type="password" id="password" name="pass" required>
+            <label for="password"><i class="fa fa-key" aria-hidden="true"></i> Password</label>
+            </div>
+
+            <div class="input-group">
+                <input type="text" id="type" name="type" required>
+           <label for="name"><i class="fas fa-user"></i> User Type</label>
+           </div>
+
+            <div class="input-group">
+            <input type="text" id="add" name="add" required>
+            <label for="name"><i class="fas fa-user"></i> Address</label>
+           </div>
+            
+            
+            <button type="submit"><i class="fas fa-paper-plane"></i> Sign-up</button>
+
+            <div class="input-group">
+            <label><p> Already have an account? <a href="../Log in/login.html"> Log in here </a> </p></label>
+            </div>
+
+        </form>
+    </div>
+
+
+</body>
+</html>

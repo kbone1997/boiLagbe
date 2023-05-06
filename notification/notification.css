@@ -1,0 +1,217 @@
+body {
+    color: #fff;
+    font: 300 14px/24px "Open Sans", "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", Sans-Serif;
+    margin: 0px; /*adds 0 space on all sides*/ 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+  *,
+  *:before,
+  *:after {
+    -webkit-box-sizing: border-box;
+       -moz-box-sizing: border-box;
+            box-sizing: border-box;
+}
+/*****
+        MENU
+****/
+.main {
+    width: 400px;
+    height: 500px;
+    background-color: #4071a3;
+    overflow: hidden;
+    position: relative;
+}
+.outer-notification {
+    position: relative;
+    z-index: 2;
+    width: 300px;
+    height: 400px;
+    top: 50%;
+    left: 50%;
+    margin-top: -200px;
+    margin-left: -150px;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 4px 4px 15px -3px black;
+    animation: menu-anime-rev;
+    transition: all 2s;
+}
+.head-notification {
+    background-color: #54B3FF;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    position: relative;
+}
+.menu {
+    height: auto;
+    width: auto;
+    cursor: pointer;
+    color: #91D1F0;
+}
+.menu:hover {
+    color: #fff;
+}
+.active-menu {
+    animation: menu-anime 1s;
+    margin-left: 0px;
+}
+@keyframes menu-anime {
+    0% { margin-left: -150px; }
+    100% { margin-left: 0px; }
+}
+@keyframes menu-anime-rev {
+    0% { margin-left: 0px; }
+    100% { margin-left: -150px; }
+}
+
+/***** 
+        SEARCH BAR
+****/
+.search {
+    cursor: pointer;
+    color: #91D1F0;
+}
+.search:hover {
+    color: #fff;
+}
+.search-bar {
+    position: absolute;
+    left: 50px;
+    pointer-events: none;
+    opacity: 0;
+    animation: search-anime-rev;
+    transition: all .5s ease-in-out;
+}
+.search-bar input {
+    height: 35px;
+    width: 180px;
+    border-radius: 25px;
+    padding-left: 10px;
+}
+.no-animation {
+    animation: none!important;
+    -webkit-animation: none!important;
+}
+.menu-no-animation {
+    animation: none!important;
+    -webkit-animation: none!important;
+}
+.active {
+    animation: search-anime 1s;
+    pointer-events: all;
+    opacity: 1;
+    left: 30px;
+}
+@keyframes search-anime {
+    0% { opacity: 0; left: 50px; }
+    100% { opacity: 1; left: 30px; }
+}
+@keyframes search-anime-rev {
+    0% { opacity: 1; left: 30px; }
+    100% { opacity: 0; left: 50px; }
+}
+
+/*****
+        POSTS
+*****/
+.body-notification {
+    position: relative;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    color: #474747;
+}
+.line {
+    position: absolute;
+    left: 35px;
+    height: 100%;
+    width: 3px;
+    background-color: lightgray;
+}
+.post {
+    position: relative;
+    padding-left: 31px;
+    padding-top: 20px;
+    z-index: 2;
+}
+.circle {
+    background-color: #fff;
+    color: #4071a3;
+    position: absolute;
+    height: 12px;
+    width: 12px;
+    border-radius: 50%;
+    border: 2px #4071a3 solid;
+    /*adding white space around circle*/
+    box-shadow: 0 0 0 3px #fff;
+}
+.post p {
+    margin-top: 0;
+    padding: 0 15px;
+}
+.time {
+    left: 16px;
+    position: relative;
+    font-size: 12px;
+    display: block;
+    line-height: 1;
+}
+
+/****
+    UNDER MENU
+****/
+.under-menu {
+    z-index: 1;
+    position: absolute;
+    width: 150px;
+    top: 100px;
+    left: 80px;
+    background-color: #51739E; /*test*/
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 4px 4px 10px -3px black;
+    animation: under-anime-rev 1s;
+}
+.under-menu ul li {
+    color: #fff;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    text-align: left;
+}
+.under-menu ul {
+    list-style-type: none;
+    width: 100%;
+    padding-left: 0;
+    text-align: left;
+    font-size: 15px;
+    margin: 0;
+}
+li:hover {
+    background-color: #4071a3;
+}
+.under-menu ul li i {
+    padding-left: 15px;
+    padding-right: 10px;
+}
+.under-menu-active {
+    animation: under-anime 1s forwards;
+}
+
+@keyframes under-anime {
+    0% {left: 80px; }
+    100% {left: 60px; }
+}
+@keyframes under-anime-rev {
+    0% { left: 60px; }
+    100% {left: 80px}
+}
